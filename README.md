@@ -6,7 +6,11 @@ This program is to extract Facebook group data, specifically as it relates to CO
 
 Instructions on how to use code coming soon
 
+This code makes use of the [Facebook-Scraper](https://pypi.org/project/facebook-scraper/) Python library to retreive data from public Facebook sources. Us the following to install: 
 
+```
+pip install facebook-scraper 
+```
 
 ## Author(s)
 
