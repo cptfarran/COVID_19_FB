@@ -5,9 +5,9 @@ from test_script import reset_ids_savefile, reset_savefile
 import facebook_scraper as fs
 import json,csv
 
-new_data_file = 'new_data.json'
-recorded_ids_file = 'recorded_ids.csv'
-saved_posts_file = 'saved_posts.json'
+new_data_file = 'data/new_data.json'
+recorded_ids_file = 'data/recorded_ids.csv'
+saved_posts_file = 'data/saved_posts.json'
 
 
 def main():
