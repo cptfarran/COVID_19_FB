@@ -2,6 +2,10 @@
 
 This program is to extract Facebook group data, specifically as it relates to COVID-19 open source data found in these group, in an effort to determine what methods and materials are made and used for at home mask production. 
 
+## Disclaimer
+
+This code has been deployed in an active stage of development and does not yet work properly as of 4/21/20 1:00pm.
+
 ## Getting Started
 
 Instructions on how to use code coming soon
