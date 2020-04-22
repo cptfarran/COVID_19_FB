@@ -4,15 +4,16 @@ import json, csv
 
 def recent_posts(save=False):
 
+	#Save arguement does not currently work - keep as FALSE
 	print("Getting most recent posts from the group...")
 	
 	i=0
 	data = {}
 	data['postsData'] = []
 	
-	for post in fs.get_posts(group='670932227050506/?sorting_setting=RECENT_ACTIVITY'):
+	for post in fs.get_posts(group='670932227050506/?sorting_setting=CHRONOLOGICAL'):
 		if post['post_id'] == None:
-			print(f'	ERROR: Post ID readings as none - cannot save post {i}')
+			print(f'	Post ID readings as none - cannot save post {i}')
 		else:
 			#print(post['post_id'])
 			data['postsData'].append(post)
@@ -43,7 +44,7 @@ def get_recorded_ids(recorded_ids_file):
 			ids.append(row[0])
 			i+=1
 
-	print(f"Pulled {i} recorded ids, including 'None'")
+	print(f"Pulled {i} recorded ids")
 	return(ids)
 
 def get_new_ids(new_data):
@@ -62,8 +63,10 @@ def update_ids(rec_ids, new_ids, recorded_ids_file):
 		if id not in rec_ids:
 			nrec_ids.append(id)
 
+	print(f'Not recorded IDs: {nrec_ids}')
+	
 	#Updates the recorded ids file by appending not recorded IDs
-	if len(nrec_ids) > 1:
+	if len(nrec_ids) > 0:
 		with open(recorded_ids_file, 'a') as file: ###############################CHANGE FOR NOT TESTING
 			for id in nrec_ids:
 				file.write(id + ',' + '\n')
@@ -84,3 +87,10 @@ def save_new_posts(new_posts,nrec_ids,saved_posts_file):
 	with open(saved_posts_file, 'w') as file: 
 			json.dump(data,file)		
 	print(f'New posts saved: {i}')
+
+def get_saved_posts(saved_posts_file):
+
+	with open(saved_posts_file, 'r') as file:
+		data = json.load(file)
+
+	return(data['postsData'])
