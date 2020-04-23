@@ -1,4 +1,4 @@
-from scl import recent_posts, get_recorded_ids, get_new_ids, update_ids, save_new_posts
+from scl import recent_posts, get_recorded_ids, get_new_ids, update_ids, save_new_posts, pull_all_posts, clear_datetime
 #rom secondary import 
 from test_script import reset_ids_savefile, reset_savefile, check_json, check_duplicate_ids, check_recordsVposts
 
@@ -7,16 +7,18 @@ import json,csv
 
 new_data_file = 'C:/Users/patri/OneDrive/Documents/Scripts/COVID_19_FB/data/new_data.json'
 recorded_ids_file = 'C:/Users/patri/OneDrive/Documents/Scripts/COVID_19_FB/data/recorded_ids.csv'
-saved_posts_file = 'C:/Users/patri/OneDrive/Documents/Scripts/COVID_19_FB/data/saved_posts.json'
+saved_posts_file = 'C:/Users/patri/OneDrive/Documents/Scripts/COVID_19_FB/data/saved_posts_final.json'
 fake_saved_posts = 'C:/Users/patri/OneDrive/Documents/Scripts/COVID_19_FB/data/working_saved_posts.json'
-
+group_links_file = 'C:/Users/patri/OneDrive/Documents/Scripts/COVID_19_FB/data/FBgroups.csv'
 
 def main():
 
 	#reset_ids_savefile(recorded_ids_file)
 	#reset_savefile(saved_posts_file)
+	
 	#Gets data from most recent posts and saves to new_data.json
-	new_posts = recent_posts(save=False) 
+	new_posts = pull_all_posts(group_links_file) 
+	#new_posts = recent_posts(save=False)
 	
 	#Pulls previously recorded Post IDs
 	rec_ids = get_recorded_ids(recorded_ids_file)
@@ -26,6 +28,9 @@ def main():
 
 	#Updates recorded ID file and returns new post ids
 	new_post_ids = update_ids(rec_ids,new_ids, recorded_ids_file)
+
+	#Function to clear datetime
+	clear_datetime(new_posts)
 
 	#Save new posts found to the local savefile
 	save_new_posts(new_posts,new_post_ids,saved_posts_file) 
