@@ -5,10 +5,8 @@ from test_script import reset_ids_savefile, reset_savefile, check_json, check_du
 import facebook_scraper as fs
 import json,csv
 
-new_data_file = 'C:/Users/patri/OneDrive/Documents/Scripts/COVID_19_FB/data/new_data.json'
-recorded_ids_file = 'C:/Users/patri/OneDrive/Documents/Scripts/COVID_19_FB/data/recorded_ids.csv'
-saved_posts_file = 'C:/Users/patri/OneDrive/Documents/Scripts/COVID_19_FB/data/saved_posts_final.json'
-fake_saved_posts = 'C:/Users/patri/OneDrive/Documents/Scripts/COVID_19_FB/data/working_saved_posts.json'
+recorded_ids_file = 'C:/Users/patri/OneDrive/Documents/Scripts/COVID_19_FB/final_recorded_ids.csv'
+saved_posts_file = 'C:/Users/patri/OneDrive/Documents/Scripts/COVID_19_FB/saved_posts_final.json'
 group_links_file = 'C:/Users/patri/OneDrive/Documents/Scripts/COVID_19_FB/data/FBgroups.csv'
 
 def main():
@@ -18,7 +16,6 @@ def main():
 	
 	#Gets data from most recent posts and saves to new_data.json
 	new_posts = pull_all_posts(group_links_file) 
-	#new_posts = recent_posts(save=False)
 	
 	#Pulls previously recorded Post IDs
 	rec_ids = get_recorded_ids(recorded_ids_file)
