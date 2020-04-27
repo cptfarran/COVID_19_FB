@@ -4,7 +4,7 @@ This program is to extract Facebook group data, specifically as it relates to CO
 
 ## Disclaimer
 
-This code has been deployed in an active stage of development and does not yet work properly as of 4/21/20 1:00pm.
+This code has been deployed in an active stage of development - it is working as of 4/27/20, with some known bugs. Check the issues tab for details.  
 
 ## Getting Started
 
@@ -18,12 +18,8 @@ pip install facebook-scraper
 
 ## Author(s)
 
-Full list coming soon
+Primary Author: Patrick Gorman
 
 ## Licensing
 
 Licensing details coming soon
-
-## Acknowledgements
-
-Acknowledgements coming soon
