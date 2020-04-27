@@ -5,9 +5,9 @@ from test_script import reset_ids_savefile, reset_savefile, check_json, check_du
 import facebook_scraper as fs
 import json,csv
 
-recorded_ids_file = 'C:/Users/patri/OneDrive/Documents/Scripts/COVID_19_FB/final_recorded_ids.csv'
-saved_posts_file = 'C:/Users/patri/OneDrive/Documents/Scripts/COVID_19_FB/saved_posts_final.json'
-group_links_file = 'C:/Users/patri/OneDrive/Documents/Scripts/COVID_19_FB/data/FBgroups.csv'
+recorded_ids_file = '../data/final_recorded_ids.csv'
+saved_posts_file = '../data/saved_posts_final.json'
+group_links_file = '../data/FBgroups.csv'
 
 def main():
 
